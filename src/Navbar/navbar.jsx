@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import './navbar.css';
 import { useSelector , useDispatch } from "react-redux";
-import { changeColor } from "../Film/filmSlice";
+import { changeColor , fetchLink } from "../Film/filmSlice";
 import {  changeColorDark , changeColorWhite } from "../Film/filmSlice";
 
 export const Navbar =() => {
@@ -34,7 +34,7 @@ export const Navbar =() => {
 
                         
                         <li className="link"> <NavLink className="home" to="/"><a>Home</a></NavLink></li>
-                        <li className="link"><NavLink to="movies"><a>Movies</a></NavLink></li>
+                        <li className="link"><NavLink to="movies"><a  >Movies</a></NavLink></li>
                         <li className="link"><NavLink to="series"><a>Series</a></NavLink></li>
                         <span><input className="search" type="text" /></span>
                     <div/>           

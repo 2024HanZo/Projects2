@@ -7,6 +7,7 @@ import { fetchLink } from "./filmSlice";
 import { remove , changeColorDark , changeColorWhite } from "./filmSlice";
 
 import "./dropdown.css";
+import { NavLink } from "react-router-dom";
 
 
 export const Film = () =>{
@@ -29,17 +30,24 @@ export const Film = () =>{
 
     return(
         <div className="all">
+ 
           {res.lenght !== 0 ? <div className={Change}>
           <div className="allCard">
-              {res.map((data) => <ul className="card">
+
+          {res.map((data) => <NavLink to={`/movies/${data.id}`} ><ul className="card">
+            {/* <MoviesDetails Idkey={data.id} result={data} /> */}
             <div className="imageCard"><img className="image" src={`https://image.tmdb.org/t/p/original/${data.poster_path
               }`} alt="test" /></div>
             <div className="cardInfo">
             <div className="moviesTitle">{data.title}</div>
-            <div >{data.vote_average}</div>
+           
             </div>
-          </ul>     
+
+          </ul>  
+            </NavLink>   
           )}
+
+
             </div>
           </div> : ""
 

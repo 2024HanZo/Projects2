@@ -167,7 +167,7 @@ ul {
     transition: 0.2s ease-in-out;
     background-image: linear-gradient(160deg, #00ff75 0%, #3700ff 100%);
     border-radius: 30px;
-    /* transition: all .3s; */
+    transition: all .3s;
     margin-bottom: 30px;
     margin-left: 100px;
     align-items: center;
@@ -185,24 +185,24 @@ ul {
     transition: all .2s;
     
    }
-   
-   .cardMoon2:hover {
+   */
+   .black .card:hover {
     transform: scale(0.98);
     border-radius: 30px;
-   } */
+   } 
    
-   .cardMoon:hover {
-    box-shadow: 0px 0px 30px 5px rgba(0, 255, 117, 0.30);
+   .black .card:hover {
+    box-shadow: 0px 0px 30px 5px rgba(44, 199, 116, 0.3);
    } 
   
-   .cardMoon:hover {
+   .black .card:hover {
     transform: scale(1.04) rotate(-1deg);
   }
   /* .cardMoon2:hover > .image {
     opacity: 0.4;
     filter: blur(1);
   } */
-  /* .cardMoon2:hover > .cardInfo {
+  /* .black .card:hover > .cardInfo {
     opacity: 1;
     color: rgb(207, 255, 74);
   } */
@@ -235,10 +235,13 @@ ul {
     transition: 0.2s ease-in-out;
     z-index: 1;
     /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    
-    height: 277px ;
+    background-repeat: no-repeat;
+    /* size: 100%; */
+    background-position: center;
+
+    height: 260px ;
     width: 210px;
+    background-size: cover;
   }
   
   .cardInfo {
@@ -290,7 +293,7 @@ ul {
     }
   
     50% {
-      transform: translateY(-18px);
+      transform: translateY(-1px);
     }
   
     100% {
