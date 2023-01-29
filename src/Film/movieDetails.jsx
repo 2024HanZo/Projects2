@@ -4,25 +4,52 @@ import { useParams } from "react-router-dom";
 import "./moviesDetails.css"
 import { Film } from "./film"
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const MovieDetails =() =>{
+    const [change,SetChange]=useState(false)
     const [data,SetData]=useState()
+    const [person,SetPerson]=useState()
+    const [video,SetVideo]= useState()
     const {id} = useParams()
     const key ="19ec599d0544cd03b6bd426993e8336b"
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get(`
-        https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`).then((res)=>{
-            const results = res.data
-            return SetData(results)
-        }
-        );
+
+            axios.get(`
+            https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`).then((res)=>{
+                const results = res.data
+                return SetData(results)
+            }
+            );
+
+    
+
 
     },[])
+    useEffect(()=>{
+        if(data !== undefined){
+            const idVideo = data.id
+            axios.get(`https://api.themoviedb.org/3/movie/${idVideo}/videos?api_key=${key}&language=en-US`).then(
+                (result)=>{
+                    const videoRes = result.data.results
+                    return SetVideo(videoRes)}
+            )
+        }
+        if(data !== undefined) {
+            let idCredit = data.id
+            axios.get(`https://api.themoviedb.org/3/movie/${idCredit}/credits?api_key=${key}&language=en-US`).then(
+                (res)=>{
+                    const cast = res.data.cast
+                    return SetPerson(cast)
+                }
+            )
+        }
+  },[data])
 
 
-    console.log(data)
+    console.log(person)
 
     // const genres = data.genres;
 
@@ -81,19 +108,64 @@ export const MovieDetails =() =>{
         <p className="voteText">{data.vote_average.toString().slice(0,3)}</p>
 
     </div>            }
-                    <button className="btnTrailer"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 18 12">
+                    <button className="btnTrailer" onClick={() => { SetChange(true)} }><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 18 12">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-</svg><span>Watch</span></button>
-                      {data.adult === true ?<div> <button className="adult">+18</button> </div> : ""} 
+</svg><span>Watch</span> 
+ 
+</button>
+
+                      {data.adult === true ?<div> <button className="adult" >+18</button> </div> : ""} 
                 </div>
-                
+                {video !== undefined && change === true? <div >  {video.map((videores) => <div> {videores.official === true && videores.type ==="Trailer" ? <div className="trailer"> <div className="close" onClick={() => {SetChange(false)}}><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="white" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg></div> <iframe width="100%" height="100%"  src={`https://www.youtube.com/embed/${videores.key}`} allowfullscreen >
+                        </iframe></div>  :""}</div> ) } 
+                        
+                </div> 
+                :""
+                }
+
 
                 </div>
 
 
             </div>
+            <h2 className="textPerson">Movie Cast</h2>
+            <div className="castCards">
+
+                {  person !== undefined ? person.map(res => <div>
+                    {res.order < 9 && res.profile_path !== null ?
+                    <div className="casts">
+                    <img src={`https://image.tmdb.org/t/p/original/${res.profile_path}`} alt="" />
+                    <h4>{res.name}</h4>
+                    <p>{res.character}</p>
+                    </div> 
+                    : ""
+
+                }
+                </div> 
+
+              )  :""}
+              
+              
+              {  data !== undefined ? <div>
+                <NavLink className="navlink" to={`/${data.id}`}>
+                <button className="btnMore">
+               <p>More</p>
+                <svg stroke-width="4" stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+                </svg>
+          
+            </button>
+            </NavLink>
+                </div> 
+
+               :""}
 
 
+           
+
+            </div>
             </div>
 
             

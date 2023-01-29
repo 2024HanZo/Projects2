@@ -1,11 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import url from "./api";
+let num = 1
+let apiKey = "19ec599d0544cd03b6bd426993e8336b";
 export const fetchLink=createAsyncThunk('film/fetchLink' , async(trends) => {
-    const num = 1
-    const apiKey = "19ec599d0544cd03b6bd426993e8336b";
-    const datalink = await url.get(`movie/${trends}?api_key=${apiKey}&language=en-US&page=${num}`)
-    return datalink.data.results
+    if (trends === undefined ){
+        const datalink = await url.get(`movie/popular?api_key=${apiKey}&language=en-US&page=${num}`)
+        return datalink.data.results   
+    }
+    else{
+        const datalink = await url.get(`movie/${trends}?api_key=${apiKey}&language=en-US&page=${num}`)
+        return datalink.data.results
+    }
+
 })
 
 const FilmSlice = createSlice({
