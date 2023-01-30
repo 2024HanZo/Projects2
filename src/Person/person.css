@@ -1,0 +1,142 @@
+.allCardPerson{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: #525252;
+}
+.return{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 120px;
+    align-items: center;
+    display: flex;
+    position: sticky;
+    top: 0px;
+    margin-bottom: 20px;
+    background-color: rgb(62, 63, 63);
+    z-index: 9000;
+    
+}
+.return img {
+    width: 70px;
+    height: 80%;
+    margin-left: 20px;
+    margin-right: 20px;
+    filter: brightness(0.75);
+   
+}
+.return h1{
+    margin-left: -145px;
+    margin-bottom: 40px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    transition: 3s ease-out;
+}
+
+
+.return .returnFilm svg{
+    margin-top: 0px;
+    margin-right: 5px;
+    color: rgb(160, 165, 165);
+    display: block;
+    align-items: center;
+    display: flex;
+
+}
+.return .returnFilm p {
+    margin-top: 60px;
+    font-size: 20px;
+    font-family: Franklin Gothic Medium;
+    color: rgb(160, 165, 165);
+    display: block;
+    align-items: center;
+    display: flex;
+    height:0.1;
+    cursor: pointer;
+}
+.returnFilm p:hover{
+    color: rgb(212, 207, 207);
+    transition: 0.3s ease-out;
+}
+.cardInfoPersone{
+    /* display: flexbox; */
+
+   
+    /* margin: 20px; */
+    display: flex;
+
+   
+    /* justify-content: space-between; */
+    align-items: center;
+    align-content: center;
+    
+
+}
+.castsInfo{
+    background-color: #6d6969;
+    border-radius: 10px;
+    margin-left: 10px;
+    width: 120px;
+    height: 250px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 2px 2px 3px hsl(0, 100%, 99% , 0.2);
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.textPerson {
+    margin-top: 90px;
+    margin-left: 25px;
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.castsInfo img {
+    width: 100%;
+    height: 70%;
+    cursor: pointer;
+    background-size: cover;
+
+
+}
+.castsInfo h4{
+    font-size: 14px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.castsInfo p{
+    font-size: 13px;
+
+}
+.castsInfo h4:hover {
+    color: #b3a9a9;
+}
+.castsInfo img:hover{
+    filter:brightness(0.75);
+}
+.mySwiper{
+    width: 100%;
+}
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
