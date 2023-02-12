@@ -134,12 +134,13 @@ export const MovieDetails =() =>{
             <div className="castCards">
 
                 {  person !== undefined ? person.map(res => <div>
-                    {res.order < 9 && res.profile_path !== null ?
+                    {res.order < 6 && res.profile_path !== null ?  <NavLink className="navlink" to={`/Person/${res.id}`}>
                     <div className="casts">
                     <img src={`https://image.tmdb.org/t/p/original/${res.profile_path}`} alt="" />
                     <h4>{res.name}</h4>
                     <p>{res.character}</p>
                     </div> 
+                    </NavLink>
                     : ""
 
                 }

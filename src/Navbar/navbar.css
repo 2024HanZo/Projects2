@@ -19,7 +19,11 @@
 
 
 .all .white{
-    background-color: rgb(131, 128, 128);
+    background-color: rgb(255, 255, 255);
+    
+    background-image:  url(../image/noise.png);
+    background-size: 200px;
+    background-repeat: repeat;
 
 }
 .white button{
@@ -29,10 +33,14 @@
 
 }
 .all .black {
-    /* background-color: rgb(240, 0, 0); */
-    background-image: url(../image/dark.jpg);
-    size: 100%;
+
+    background-image:  url(../image/noise.png);
+    background-size: 200px;
+    background-repeat: repeat;
+
 }
+
+
 
 .black button{
     border: none;
@@ -56,7 +64,7 @@ ul {
   
 .link a {
     display: block;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -83,21 +91,16 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(131, 128, 128);
+    background-color: rgb(255, 255, 255);
+    
+    background-image:  url(../image/noise.png);
+    background-size: 200px;
+    background-repeat: repeat;
     display: flex;
     align-items: center;
     
 }
-/* .white li a {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.5s ease-in-out;
-  font-weight: 500;
-  font-size: 20px;
-  border: none;
-} */
+
 .white .linkA {
   display: block;
   color: rgb(0, 0, 0);
@@ -117,11 +120,18 @@ ul {
     display: flex;
     align-items: center;;
     background-color: rgb(0, 0, 0);
+    background-image:  url(../image/noise.png);
+    background-size: 200px;
+    background-repeat: repeat;
 
 }
 
 .black li a {
     color: rgb(255, 255, 255);
+}
+.white li a {
+  color: rgb(0, 0, 0);
+
 }
 .button{
     background-color: rgb(255, 255, 255);
@@ -132,7 +142,7 @@ ul {
     align-items: center;
     float: right;
 }
-.link  a.active{
+.link  a .active{
   color:#be913d;
 }
 
@@ -142,84 +152,46 @@ ul {
 
 
 .allCard{
-    padding: 10px;
-    /* margin: 20px; */
-    display: flexbox;
-    justify-content: space-between;
-    align-items: center;
-    columns: 6;
+    display: flex;
     align-content: center;
     flex-wrap: wrap;
-
-
-
 }
+
+
+
 /* style ta3 card moon */
 
  .black .card {
-    width: 200px;
-    height: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
+    color: transparent;
     transition: 0.2s ease-in-out;
-    background-image: linear-gradient(160deg, #00ff75 0%, #3700ff 100%);
-    border-radius: 30px;
-    transition: all .3s;
-    margin-bottom: 30px;
-    margin-left: 100px;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1;
+    background-size: cover;
+    z-index: 10000;
     position: relative;
    }
-/*    
-   .cardMoon2 {
-    width: 200px;
-    height: 260px;
-    background-color: #1a1a1a;
-    border-radius:30px;
-    transition: all .2s;
-    
-   }
-   */
-   .black .card:hover {
-    transform: scale(0.98);
-    border-radius: 30px;
-   } 
+
    
    .black .card:hover {
-    box-shadow: 0px 0px 30px 5px rgba(44, 199, 116, 0.3);
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.3);
    } 
   
    .black .card:hover {
-    transform: scale(1.04) rotate(-1deg);
+    transform: scale(1.14) rotate(-1deg);
   }
-  /* .cardMoon2:hover > .image {
-    opacity: 0.4;
-    filter: blur(1);
-  } */
-  /* .black .card:hover > .cardInfo {
-    opacity: 1;
-    color: rgb(207, 255, 74);
-  } */
 
 /* another style*/
   .card {
     background: #313131;
+    top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    /* color: rgb(255, 0, 0); */
     transition: 0.2s ease-in-out;
     width: 200px;
     height: 260px;
     border-radius: 30px;
-    background: lightgrey;
+    /* background: rgb(241, 0, 0); */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
     margin-bottom: 30px;
     margin-left: 100px;
@@ -230,60 +202,27 @@ ul {
   }
   
   .image {
-
-    /* position: absolute; */
     transition: 0.2s ease-in-out;
     z-index: 1;
-    /* background-size: cover; */
     background-repeat: no-repeat;
-    /* size: 100%; */
     background-position: center;
-
-    height: 260px ;
-    width: 210px;
+    height: 265px ;
+    width: 206px;
     background-size: cover;
   }
   
-  .cardInfo {
-    opacity: 0;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    transition: 0.2s ease-in-out;
-    z-index: 2;
-    color: rgb(0, 0, 0);
-    font-weight: 500;
-    line-height: 1em;
-    font-size: 1em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    
-
-  }
-.moviesTitle{
-    
-    top: 50%;
-    width: 200px;
-    color: rgb(0, 0, 0);
-    font-weight: 900;
-    /* background-color: black; */
-}
-
-  .card:hover > .cardInfo {
+  .card:hover{
     opacity: 1;
     color: rgb(207, 255, 74);
   }
+
+  .white .card:hover {
+    transform: scale(1.14) rotate(-1deg);
+  }
   
   .image:hover {
-    /* height: 65%; */
     opacity: 0.4;
     transform: scale(1.8);
-    /* filter: blur(0.8px); */
     animation: anim 3s infinite;
   }
   
@@ -293,7 +232,7 @@ ul {
     }
   
     50% {
-      transform: translateY(-1px);
+      transform: translateY(-3px);
     }
   
     100% {
@@ -305,4 +244,15 @@ ul {
     transform: scale(1.04) rotate(-1deg);
   }
   
-  
+  @media (max-width:991px) {
+    .card{
+      width: 150px;
+      height: 260px;
+      margin-left: 10px;
+    }
+    .image{
+      width: 150px;
+      height: 260px;
+    }
+
+  }

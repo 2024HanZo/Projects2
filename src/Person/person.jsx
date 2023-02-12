@@ -2,6 +2,7 @@ import { useParams , useNavigate } from "react-router-dom"
 import axios from "axios"
 import { useState , useEffect } from "react"
 import SwiperCore, { EffectCoverflow, EffectFade, Navigation, Pagination } from "swiper";
+import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
@@ -71,11 +72,15 @@ export const Person = () =>{
             {  person !== undefined ? person.map(res => <div>
 
                     {res.order && res.profile_path !== null ?<SwiperSlide>
-                    <div className="castsInfo">
+                        <NavLink className="navlink" to={`/Person/${res.id}`}>
+                        <div className="castsInfo">
                     <img src={`https://image.tmdb.org/t/p/original/${res.profile_path}`} alt="" />
                     <h4>{res.name}</h4>
                     <p>{res.character}</p>
                     </div> 
+
+                        </NavLink>
+
                     </SwiperSlide>
                     : ""
 
